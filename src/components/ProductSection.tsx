@@ -1,5 +1,6 @@
+import orangeImage from 'figma:asset/e1f9b1b54a0d25719a8af1e1f66e8f71ba153ac1.png';
+import guavaImage from 'figma:asset/8cc0905bd461adf44a174b855614368fca4533c9.png';
 import { Card } from "./ui/card";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Sparkles } from "lucide-react";
 
 export function ProductSection() {
@@ -11,7 +12,7 @@ export function ProductSection() {
       description: "Jeruk pilihan yang kaya vitamin C, memberikan kesegaran alami dan meningkatkan imunitas tubuh. Sempurna untuk memulai hari dengan energi penuh!",
       color: "from-orange-400 to-orange-500",
       bgColor: "from-orange-50 to-orange-100",
-      image: "https://images.unsplash.com/photo-1617319683252-027deeba5fd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmFuZ2UlMjBqdWljZSUyMHNwbGFzaHxlbnwxfHx8fDE3NjA0Mzc3Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: orangeImage,
       features: ["Tinggi Vitamin C", "Anti Oksidan", "Meningkatkan Imunitas"]
     },
     {
@@ -21,7 +22,7 @@ export function ProductSection() {
       description: "Jambu merah manis dengan kandungan vitamin dan mineral yang melimpah. Menyegarkan tenggorokan dan membantu menjaga kesehatan kulit.",
       color: "from-pink-400 to-pink-500",
       bgColor: "from-pink-50 to-pink-100",
-      image: "https://images.unsplash.com/photo-1658215286262-bbed7ceb7f9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxndWF2YSUyMGp1aWNlJTIwZHJpbmt8ZW58MXx8fHwxNzYwNDYxOTQ2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: guavaImage,
       features: ["Kaya Vitamin A", "Baik untuk Kulit", "Rendah Kalori"]
     }
   ];
@@ -48,11 +49,13 @@ export function ProductSection() {
               <div className={`bg-gradient-to-br ${product.bgColor} p-8`}>
                 <div className="relative mb-6">
                   <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20 rounded-3xl blur-2xl`}></div>
-                  <ImageWithFallback 
-                    src={product.image}
-                    alt={product.name}
-                    className="relative w-full h-80 object-cover rounded-2xl shadow-lg"
-                  />
+                  <div className="relative w-full h-80 rounded-2xl shadow-lg overflow-hidden">
+                    <img 
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div className={`absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br ${product.color} rounded-full flex items-center justify-center text-4xl shadow-lg`}>
                     {product.emoji}
                   </div>
